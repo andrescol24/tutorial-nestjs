@@ -10,8 +10,11 @@ export class TasksController {
         return {taskId: 12, description: "Walking the dod"};
     }
 
+    /*
+    NO RECOMMENDED
+    */
     @Get('/express')
-    getTasksUsingExpress(@Req() Req, @Res() res): string {
+    getTasksUsingExpress(@Req() Req, @Res() res): Response {
         return res.send("Hello from express");
     }
 
