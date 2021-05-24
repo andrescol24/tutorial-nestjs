@@ -28,3 +28,6 @@ To run this proyect you can execute the commands:
 ## Generation
 You can generate new components such as services, controllers and more, for example:
 - ```nest generate controller tasks``` this command will generate a controller named tasks
+
+## Modules
+All Nest Js projects has a main module (app.module.ts) and when you create others modules those modules will be sud-modules of the main module
