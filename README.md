@@ -24,3 +24,7 @@ To create the project use the command: ```nest new {projectName}```
 To run this proyect you can execute the commands:
 - ```npm start```
 - ```npm run start:dev``` with this command you will be able to run the project and make changes over the code and those change automatically will be applied
+
+## Generation
+You can generate new components such as services, controllers and more, for example:
+- ```nest generate controller tasks``` this command will generate a controller named tasks
