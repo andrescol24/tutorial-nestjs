@@ -5,8 +5,8 @@ import {CreateTaskDto} from './dto/create-task.dto';
 export class TasksController {
 
     @Get()
-    getTasks(): string {
-        return "Returning tasks";
+    getTasks(): {taskId: number, description: string} {
+        return {taskId: 12, description: "Walking the dod"};
     }
 
     @Post()
