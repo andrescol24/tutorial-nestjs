@@ -15,9 +15,11 @@ export class TasksController {
         return "Added";
     }
 
-    @Put()
-    editTask(): string {
-        return "Edited";
+    @Put(":taskId")
+    editTask(@Param('taskId') taskId: number, @Body() task : CreateTaskDto): string {
+        let message: string = `Updating task with id ${taskId}`;
+        console.log(message, task);
+        return message;
     }
 
     @Delete(":taskId")
