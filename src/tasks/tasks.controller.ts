@@ -1,5 +1,6 @@
-import { Controller, Get, Post, Put, Delete, Body, Param} from '@nestjs/common';
+import { Controller, Get, Post, Put, Delete, Body, Param, Req, Res} from '@nestjs/common';
 import {CreateTaskDto} from './dto/create-task.dto';
+import {Request, Response} from 'express';
 
 @Controller('tasks')
 export class TasksController {
@@ -7,6 +8,11 @@ export class TasksController {
     @Get()
     getTasks(): {taskId: number, description: string} {
         return {taskId: 12, description: "Walking the dod"};
+    }
+
+    @Get('/express')
+    getTasksUsingExpress(@Req() Req, @Res() res): string {
+        return res.send("Hello from express");
     }
 
     @Post()
