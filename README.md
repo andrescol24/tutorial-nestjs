@@ -30,4 +30,9 @@ You can generate new components such as services, controllers and more, for exam
 - ```nest generate controller tasks``` this command will generate a controller named tasks
 
 ## Modules
-All Nest Js projects has a main module (app.module.ts) and when you create others modules those modules will be sud-modules of the main module
+All Nest Js projects has a main module (app.module.ts) and when you create others modules those modules will be sud-modules of the main module.
+
+## ORM
+To install the ORM of NestJs for MongoDB use this command (https://docs.nestjs.com/techniques/mongodb): 
+-```npm install --save @nestjs/mongoose mongoose```
+- ```npm install @types/mongoose -D``` this command is to install the autocomplete for mongoose
