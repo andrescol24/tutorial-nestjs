@@ -1,21 +1,21 @@
 import { Controller, Get, Post, Put, Delete, Body, Param, Req, Res} from '@nestjs/common';
 import {CreateTaskDto} from './dto/create-task.dto';
-import {Request, Response} from 'express';
+import { TasksService } from './tasks.service';
+import { Task } from './interface/Task';
 
 @Controller('tasks')
 export class TasksController {
 
+    constructor(private taskService: TasksService) {}
+
     @Get()
-    getTasks(): {taskId: number, description: string} {
-        return {taskId: 12, description: "Walking the dod"};
+    getTasks(): Task[] {
+        return this.taskService.getTasks();
     }
 
-    /*
-    NO RECOMMENDED
-    */
-    @Get('/express')
-    getTasksUsingExpress(@Req() Req, @Res() res): Response {
-        return res.send("Hello from express");
+    @Get(":taskId")
+    getTask(@Param("taskId") taskId: number): Task {
+        return this.taskService.getTask(taskId);
     }
 
     @Post()
@@ -32,8 +32,14 @@ export class TasksController {
     }
 
     @Delete(":taskId")
-    deleteTask(@Param('taskId') taskId: number) : string {
-        console.log(`Deleting ${taskId}`);
-        return `Deleting task number: ${taskId}`;
+    deleteTask(@Param('taskId') taskId: number, @Res() res) {
+        let deleted = this.taskService.deleteTask(taskId);
+        if(deleted) {
+            res.status(200);
+            res.send(`deleted task with id: ${taskId}`);
+        } else {
+            res.status(404);
+            res.send(`not found task with id: ${taskId}`);
+        }
     }
 }
