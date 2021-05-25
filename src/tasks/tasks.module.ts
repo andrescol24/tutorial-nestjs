@@ -5,7 +5,8 @@ import { TasksController } from './tasks.controller';
 import { TasksService } from './tasks.service';
 
 @Module({
-    imports: [MongooseModule.forFeature([
+    // Theses lines is to registry all Schemans or Collections (MongoDB)
+    imports: [MongooseModule.forFeature([ 
         {name: "Task", schema: TaskSchema}
     ])],
     controllers: [TasksController],

@@ -19,27 +19,7 @@ export class TasksController {
     }
 
     @Post()
-    addTask(@Body() task : CreateTaskDto): string {
-        console.log(task);
-        return "Added";
+    addTask(@Body() task : CreateTaskDto): Promise<Task> {
+        return this.taskService.createTask(task);
     }
-
-    @Put(":taskId")
-    editTask(@Param('taskId') taskId: number, @Body() task : CreateTaskDto): string {
-        let message: string = `Updating task with id ${taskId}`;
-        console.log(message, task);
-        return message;
-    }
-
-    /*@Delete(":taskId")
-    deleteTask(@Param('taskId') taskId: number, @Res() res) {
-        let deleted = this.taskService.deleteTask(taskId);
-        if(deleted) {
-            res.status(200);
-            res.send(`deleted task with id: ${taskId}`);
-        } else {
-            res.status(404);
-            res.send(`not found task with id: ${taskId}`);
-        }
-    }*/
 }
