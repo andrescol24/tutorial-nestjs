@@ -9,12 +9,12 @@ export class TasksController {
     constructor(private taskService: TasksService) {}
 
     @Get()
-    getTasks(): Task[] {
+    getTasks(): Promise<Task[]> {
         return this.taskService.getTasks();
     }
 
     @Get(":taskId")
-    getTask(@Param("taskId") taskId: number): Task {
+    getTask(@Param("taskId") taskId: string): Promise<Task> {
         return this.taskService.getTask(taskId);
     }
 
@@ -31,7 +31,7 @@ export class TasksController {
         return message;
     }
 
-    @Delete(":taskId")
+    /*@Delete(":taskId")
     deleteTask(@Param('taskId') taskId: number, @Res() res) {
         let deleted = this.taskService.deleteTask(taskId);
         if(deleted) {
@@ -41,5 +41,5 @@ export class TasksController {
             res.status(404);
             res.send(`not found task with id: ${taskId}`);
         }
-    }
+    }*/
 }

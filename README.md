@@ -32,6 +32,9 @@ You can generate new components such as services, controllers and more, for exam
 ## Modules
 All Nest Js projects has a main module (app.module.ts) and when you create others modules those modules will be sud-modules of the main module.
 
+## Interfaces and DTO
+The interfaces are used to send data as response and DTO to recieve
+
 ## ORM
 To install the ORM of NestJs for MongoDB use this command (https://docs.nestjs.com/techniques/mongodb): 
 -```npm install --save @nestjs/mongoose mongoose```
